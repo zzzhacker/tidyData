@@ -26,7 +26,7 @@ measurements <- gsub('[()]', '', measurements)
 # Load train datasets
 train <- fread(file.path(path, "UCI HAR Dataset/train/X_train.txt"))[, featuresWanted, with = FALSE]
 data.table::setnames(train, colnames(train), measurements)
-trainActivities <- fread(file.path(path, "UCI HAR Dataset/train/Y_train.txt")
+trainActivities <- fread(file.path(path, "UCI HAR Dataset/train/y_train.txt")
                        , col.names = c("Activity"))
 trainSubjects <- fread(file.path(path, "UCI HAR Dataset/train/subject_train.txt")
                        , col.names = c("SubjectNum"))
@@ -35,7 +35,7 @@ train <- cbind(trainSubjects, trainActivities, train)
 # Load test datasets
 test <- fread(file.path(path, "UCI HAR Dataset/test/X_test.txt"))[, featuresWanted, with = FALSE]
 data.table::setnames(test, colnames(test), measurements)
-testActivities <- fread(file.path(path, "UCI HAR Dataset/test/Y_test.txt")
+testActivities <- fread(file.path(path, "UCI HAR Dataset/test/y_test.txt")
                         , col.names = c("Activity"))
 testSubjects <- fread(file.path(path, "UCI HAR Dataset/test/subject_test.txt")
                       , col.names = c("SubjectNum"))
